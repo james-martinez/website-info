@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webscanner-frontend
+  labels:
+    app: webscanner-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: webscanner-frontend
+  template:
+    metadata:
+      labels:
+        app: webscanner-frontend
+    spec:
+      containers:
+      - name: frontend
+        image: webscanner-frontend:latest
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
+        securityContext:
+          runAsNonRoot: true
+          runAsUser: 101
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true

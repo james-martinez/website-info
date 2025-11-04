@@ -1,0 +1,147 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  padding: 20px;
+  color: white;
+}
+
+.scan-form {
+  margin-top: 20px;
+}
+
+.scan-form input {
+  padding: 10px;
+  font-size: 16px;
+  margin-right: 10px;
+  width: 300px;
+}
+
+.scan-form button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+  margin-top: 20px;
+}
+
+.scan-result {
+  padding: 20px;
+}
+
+.screenshot img {
+  max-width: 100%;
+  border: 1px solid #ccc;
+}
+
+.security-details {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.certificate,
+.headers,
+.cookies,
+.security-analysis,
+.dns-info,
+.geo-info,
+.whois-info,
+.redirect-chain,
+.http-transactions,
+.dom-analysis {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #eee;
+}
+
+.certificate h4,
+.headers h4,
+.cookies h4,
+.security-analysis h4,
+.dns-info h4,
+.geo-info h4,
+.whois-info h4,
+.redirect-chain h4,
+.http-transactions h4,
+.dom-analysis h4 {
+  margin-top: 0;
+}
+
+.whois-info pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-size: 12px;
+  background-color: #f5f5f5;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.transaction-item {
+  margin-bottom: 8px;
+  padding: 8px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+}
+
+.transaction-header {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.method {
+  background-color: #007bff;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.status {
+  font-weight: bold;
+}
+
+.status[data-status^="2"] { color: #28a745; }
+.status[data-status^="3"] { color: #ffc107; }
+.status[data-status^="4"] { color: #dc3545; }
+.status[data-status^="5"] { color: #dc3545; }
+
+.url {
+  flex: 1;
+  font-family: monospace;
+  font-size: 12px;
+  word-break: break-all;
+}
+
+.dom-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.scripts-section,
+.forms-section {
+  margin-top: 15px;
+}
+
+.scripts-section ul,
+.forms-section ul {
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  word-break: break-all;
+}
