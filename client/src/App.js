@@ -34,6 +34,19 @@ function App() {
     }
   };
 
+  const renderValue = (value) => {
+    if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean' || value === null) {
+      return value;
+    }
+    if (Array.isArray(value)) {
+      return value.join(', ');
+    }
+    if (typeof value === 'object') {
+      return JSON.stringify(value);
+    }
+    return '';
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -77,7 +90,7 @@ function App() {
                 <h4>Security Headers</h4>
                 <ul>
                   {Object.entries(scanResult.securityHeaders).map(([key, value]) => (
-                    <li key={key}><strong>{key}:</strong> {value}</li>
+                    <li key={key}><strong>{key}:</strong> {renderValue(value)}</li>
                   ))}
                 </ul>
               </div>
@@ -86,7 +99,7 @@ function App() {
                 <ul>
                   {scanResult.cookies.map((cookie) => (
                     <li key={cookie.name}>
-                      <strong>{cookie.name}:</strong> {cookie.value}
+                      <strong>{cookie.name}:</strong> {renderValue(cookie.value)}
                     </li>
                   ))}
                 </ul>
@@ -212,7 +225,7 @@ function App() {
                       <ul>
                         {scanResult.domInfo.forms.map((form, index) => (
                           <li key={index}>
-                            {form.method || 'GET'} → {form.action || 'same page'}
+                            {form.method || 'GET'} → {typeof form.action === 'object' ? JSON.stringify(form.action) : form.action || 'same page'}
                           </li>
                         ))}
                       </ul>
